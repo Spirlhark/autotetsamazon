@@ -23,7 +23,7 @@ jobs:
           pip install -r requirements.txt
       - name: Check code style
         if: always()
-        run: pytest -s -v tests/tests_steps.py --alluredir=allure-results
+        run: pytest -s -v tests/tests_steps.py --browser=headless --alluredir=allure-results
         continue-on-error: true
 
       - name: Get Allure history
