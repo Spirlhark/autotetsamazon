@@ -1,5 +1,5 @@
 import time
-
+from resorses.pars_values import getDataFromConfig
 import nums_from_string
 from pages.BasePage import BasePage
 import allure
@@ -10,7 +10,8 @@ from selenium.webdriver.support.ui import Select
 class Scenario_Two(BasePage):
     locator_dictionary = {
         "buttonGoToTodaysDeals": (By.XPATH, '//*[@id="nav-xshop"]/a[3]'),
-        "2category": (By.XPATH, '//*[@id="slot-15"]/div/div/div[2]/div[3]/div/div[2]'),
+        # "2category": (By.XPATH, '//*[@id="slot-15"]/div/div/div[2]/div[3]/div/div[2]'),
+        "2category": (By.XPATH, '//*[@id="slot-15"]/div/div/div[2]/div[3]/div/div[1]'),
         "buttonElements": (By.XPATH, '//*[@id="octopus-dlp-asin-stream"]/ul/li[1]'),
         "priceWhenOrdering": (By.XPATH, '//*[@id="corePrice_feature_div"]/div/span/span[2]'),
         "clickQuantity": (By.ID, 'quantity'),
@@ -45,7 +46,7 @@ class Scenario_Two(BasePage):
         # qwe = nums_from_string.get_nums(price)
         # price01 = qwe[0]
         Scenario_Two.price_when_ordering = nums_from_string.get_nums(self.find_element(*self.locator_dictionary['priceWhenOrdering']).text)[0]
-        Select(self.find_element(*self.locator_dictionary['clickQuantity'])).select_by_value('3')
+        Select(self.find_element(*self.locator_dictionary['clickQuantity'])).select_by_value(f'{getDataFromConfig("UNIT")}')
         self.find_element(*self.locator_dictionary['addToCartButton']).click()
         self.button_esc()
 
@@ -62,8 +63,8 @@ class Scenario_Two(BasePage):
 
     @allure.step('Check the Number of Units Ordered')
     def number_of_units(self):
-        assert Scenario_Two.units_in_the_cart == 3
+        assert Scenario_Two.units_in_the_cart == getDataFromConfig('UNIT')
 
     @allure.step('Check Total Price')
     def check_total_price(self):
-        assert Scenario_Two.total_price_in_cart == Scenario_Two.price_in_the_cart * Scenario_Two.units_in_the_cart
+        assert Scenario_Two.total_price_in_cart == Scenario_Two.price_in_the_cart * getDataFromConfig('UNIT')

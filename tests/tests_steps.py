@@ -4,7 +4,6 @@ from pages.Scenario2 import Scenario_Two
 from pages.Scenario3 import Scenario_Three
 
 
-
 @pytest.mark.usefixtures("start_session")
 class TestLogin:
     def test_sign_in(self):

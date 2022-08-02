@@ -3,6 +3,7 @@ from selenium import webdriver
 from webdriver_manager.opera import OperaDriverManager
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
+from resorses.pars_values import getDataFromConfig
 
 import os
 
@@ -11,7 +12,7 @@ os.environ['WDM_LOCAL'] = '1'
 
 
 class Session:
-    BASE_URL = 'https://www.amazon.ae/'
+    BASE_URL = getDataFromConfig('BASE_URL')
     LOCALE = 'en'
 
     @classmethod
