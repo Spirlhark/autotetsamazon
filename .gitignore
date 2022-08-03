@@ -1,0 +1,7 @@
+/.idea
+/venv
+/.venv
+/alluress
+/allures
+amazon_test_probnik.py
+main.py

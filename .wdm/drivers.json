@@ -1,6 +1,6 @@
 {
     "win32_chromedriver_103.0.5060_for_103.0.5060": {
         "timestamp": "02/08/2022",
-        "binary_path": "D:\\pyproj\\autotestamazon\\autotetsamazon\\.wdm\\drivers\\chromedriver\\win32\\103.0.5060\\chromedriver.exe"
+        "binary_path": "D:\\autotestamazon\\autotetsamazon\\.wdm\\drivers\\chromedriver\\win32\\103.0.5060\\chromedriver.exe"
     }
 }
